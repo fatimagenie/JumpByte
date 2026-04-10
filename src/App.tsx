@@ -13,8 +13,8 @@ import { useEffect, useRef, useState } from 'react';
 // Game Constants
 const BOARD_WIDTH = 750;
 const BOARD_HEIGHT = 250;
-const DINO_WIDTH = 50;
-const DINO_HEIGHT = 50;
+const DINO_WIDTH = 88;
+const DINO_HEIGHT = 94;
 
 export default function App() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -24,7 +24,7 @@ export default function App() {
   const isAntigravityRef = useRef(false);
   const [isAntigravity, setIsAntigravity] = useState(false);
   const velocityY = useRef(0);
-  const gravity = 0.6; // Standard value
+  const gravity = 0.2; // Adjusted for floating jump
 
   const dino = useRef({
     x: 50,
@@ -54,7 +54,7 @@ export default function App() {
       // Clear board
       ctx.clearRect(0, 0, BOARD_WIDTH, BOARD_HEIGHT);
 
-      // Determine current gravity based on Antigravity state
+      // Determine current gravity (Antigravity mode makes it even slower, or you can just use basic gravity)
       let currentGravity = isAntigravityRef.current ? 0.05 : gravity;
 
       // Apply gravity to velocity
@@ -97,7 +97,7 @@ export default function App() {
       if (e.code === 'Space' || e.code === 'ArrowUp') {
         const groundY = BOARD_HEIGHT - 20;
         if (dino.current.y === groundY - dino.current.height) {
-           velocityY.current = -12; // Jump velocity
+           velocityY.current = -10; // Jump velocity
         }
       } else if (e.code === 'KeyG' || e.key === 'g') {
         isAntigravityRef.current = !isAntigravityRef.current;
