@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-[#f7f7f7] flex items-center justify-center min-h-screen m-0 overflow-hidden;
+    font-family: 'Courier New', Courier, monospace;
+  }
+}
+
+#board {
+  @apply bg-white border-b-2 border-gray-300 shadow-sm;
+}

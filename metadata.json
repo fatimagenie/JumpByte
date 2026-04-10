@@ -1,0 +1,5 @@
+{
+  "name": "Dino Run Classic",
+  "description": "A classic Chrome Dino style endless runner game built with React and Canvas.",
+  "requestFramePermissions": []
+}
